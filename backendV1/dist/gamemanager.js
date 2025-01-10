@@ -16,7 +16,7 @@ exports.GameManager = void 0;
 require('dotenv').config();
 const messages_1 = require("./messages");
 const chess_js_1 = require("chess.js");
-const backendUrl = process.env.backendUrl;
+const backendUrl = process.env.backendUrl || "http://localhost:3000";
 const axios_1 = __importDefault(require("axios"));
 class Game {
     constructor(player1, player2, p1Metadata, p2Metadata) {
