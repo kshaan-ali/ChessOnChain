@@ -8,7 +8,7 @@ import {
   MOVE,
 } from "./messages";
 import { Chess, Move } from "chess.js";
-const backendUrl = process.env.backendUrl;
+const backendUrl = process.env.backendUrl ||"http://localhost:3000";
 
 import axios from "axios";
 
