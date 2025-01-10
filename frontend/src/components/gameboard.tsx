@@ -1,11 +1,11 @@
-import { Chess, Color, Move, PieceSymbol, Square } from "chess.js";
+import {  Color,  PieceSymbol, Square } from "chess.js";
 import { useEffect, useState } from "react";
 export const INIT_GAME = "init_game";
 export const MOVE = "move";
 export const GAME_OVER = "game_over";
 import { Img } from "react-image";
 import { COLOR_WHITE } from "./types";
-import { useRecoilState } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 import {
   equippedItemsAtom,
   metadataAtom,
@@ -31,12 +31,12 @@ function Gameboard({
 }) {
   // const boardRepresentation:{square:string}[][]=[]
   const [from, setFrom] = useState<Square | null>(null);
-  const [metadata, setmetadata] = useRecoilState(metadataAtom);
-  const [to, setTo] = useState<Square | null>(null);
-  const [equippedItems, setEquippedItems] = useRecoilState(equippedItemsAtom);
-  const [metaMetaData, setMetaMetaData] = useRecoilState(metaMetadataAtom);
+  const  setmetadata = useSetRecoilState(metadataAtom);
+  // const [to, setTo] = useState<Square | null>(null);
+  const equippedItems = useRecoilValue(equippedItemsAtom);
+  const metaMetaData = useRecoilValue(metaMetadataAtom);
 
-  const [signer, setSigner] = useRecoilState(signerAtom);
+  const signer = useRecoilValue(signerAtom);
   useEffect(() => {
     async function code() {
       if (signer) {
@@ -83,7 +83,7 @@ function Gameboard({
                   <div
                     onClick={function () {
                       if (from) {
-                        setTo(boardRepresentation);
+                        // setTo(boardRepresentation);
                         socket?.send(
                           JSON.stringify({
                             type: MOVE,

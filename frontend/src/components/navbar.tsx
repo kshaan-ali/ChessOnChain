@@ -1,17 +1,17 @@
-import React, { useEffect } from "react";
-import { useRecoilState } from "recoil";
+import  { useEffect } from "react";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { signerAtom, signerConnectedAtom, userAtom } from "../atoms/atoms";
 import { connectMetamask } from "../hooks/useProvider";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { backendUrl } from "../config/config";
-import { JsonRpcSigner } from "ethers";
+// import { JsonRpcSigner } from "ethers";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function Navbar() {
   const [signer, setSigner] = useRecoilState(signerAtom);
-  const [user, setUser] = useRecoilState<any>(userAtom);
+  const  setUser = useSetRecoilState<any>(userAtom);
   const [signerConnected, setSignerConnected] = useRecoilState(signerConnectedAtom);
   const navigate = useNavigate();
 

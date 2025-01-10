@@ -1,4 +1,4 @@
-import { Contract, ethers } from "ethers";
+import { Contract } from "ethers";
 
 export async function ownerOfMintedTokens(
   _contract: Contract,

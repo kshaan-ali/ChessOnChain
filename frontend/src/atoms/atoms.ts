@@ -1,6 +1,6 @@
 import { JsonRpcSigner } from "ethers";
 import { Contract } from "ethers";
-import { atom, RecoilState } from "recoil";
+import { atom } from "recoil";
 
 
 export const metadataAtom=atom<any[]>({
