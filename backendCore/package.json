@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "prisma generate",
+    "build": "tsc && prisma generate",
     "dev": "npx tsc -b && node  ./dist/index.js",
     "stage":"npx tsc -b && git status && git add ."
   },
@@ -21,6 +21,7 @@
     "redis": "^4.7.0"
   },
   "devDependencies": {
-    "prisma": "^6.1.0"
+    "prisma": "^6.1.0",
+    "typescript": "^5.0.0"
   }
 }
