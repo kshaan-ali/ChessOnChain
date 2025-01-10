@@ -124,7 +124,7 @@ function Gameboard({
                           <div>
                             
                             <Img
-                              src={`src/assets/${inner.type} ${inner.color}.png`}
+                              src={`./src/assets/${inner.type} ${inner.color}.png`}
                             ></Img>{" "}
                           </div>
                         ))
