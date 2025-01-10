@@ -1,0 +1,11 @@
+{
+  "name": "Freakey Pawn",
+  "description": "This NFT is representing Freakey Pawn",
+  "image": "https://inherent-scarlet-tarsier.myfilebase.com/ipfs/QmbrFsV3qgjiyqCS9fK3wAi3aySJHCVUqZh76FAQvHEi6f",
+  "attributes": [
+    {
+      "trait_type": "Piece Type",
+      "value": "p"
+    }
+  ]
+}
