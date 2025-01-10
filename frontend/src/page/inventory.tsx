@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
-import { useRecoilState } from "recoil";
-import { equippedItemsAtom, signerAtom, signerConnectedAtom, userAtom } from "../atoms/atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { equippedItemsAtom, signerAtom } from "../atoms/atoms";
 import { useNavigate } from "react-router-dom";
 import { contractFetcher } from "../blockchain/lib";
 import { ownerOfMintedTokens, tokenURI } from "../blockchain/function";
@@ -11,7 +11,7 @@ import { PacmanLoader } from "react-spinners";
 function Inventory() {
   const [items, setItems] = useState<any[]>([]);
   const [equippedItems, setEquippedItems] = useRecoilState(equippedItemsAtom);
-  const [signer, setSigner] = useRecoilState(signerAtom);
+  const signer  = useRecoilValue(signerAtom);
   
   const navigate = useNavigate();
 

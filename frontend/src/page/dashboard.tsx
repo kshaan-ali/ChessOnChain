@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
+import  {  useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { connectMetamask } from "../hooks/useProvider";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { signerAtom, signerConnectedAtom, userAtom } from "../atoms/atoms";
 import Navbar from "../components/navbar";
 
 function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [signerConnected] = useRecoilState(signerConnectedAtom);
+  // const [signerConnected] = useRecoilState(signerConnectedAtom);
   const [user] = useRecoilState<any>(userAtom);
   const navigate = useNavigate();
 
@@ -58,8 +58,8 @@ const Modal = ({ isOpen, onClose }: any) => {
   if (!isOpen) return null;
 
   const navigate = useNavigate();
-  const [signer, setSigner] = useRecoilState(signerAtom);
-  const [signerConnected, setSignerConnected] = useRecoilState(signerConnectedAtom);
+  const  setSigner = useSetRecoilState(signerAtom);
+  const setSignerConnected = useSetRecoilState(signerConnectedAtom);
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75 backdrop-blur-sm">

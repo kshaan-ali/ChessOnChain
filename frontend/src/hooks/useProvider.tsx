@@ -1,12 +1,12 @@
 
 import { ethers } from 'ethers';
-import React, { useEffect } from 'react'
-import { useRecoilState } from 'recoil';
+import  { useEffect } from 'react'
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import { signerAtom, signerConnectedAtom } from '../atoms/atoms';
 
 declare global { interface Window { ethereum: any; } }
 function useProvider() {
-    const [signer,setSigner]=useRecoilState(signerAtom)
+    const setSigner=useSetRecoilState(signerAtom)
     const [signerConnected,setSignerConnected]=useRecoilState(signerConnectedAtom)
     
     useEffect(function(){

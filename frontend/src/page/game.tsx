@@ -3,8 +3,8 @@ import Gameboard from "../components/gameboard";
 import { Chess, Move } from "chess.js";
 import { COLOR_BLACK } from "../components/types";
 import { PacmanLoader } from "react-spinners";
-import axios from "axios";
-import { useRecoilState } from "recoil";
+// import axios from "axios";
+import {  useRecoilValue, useSetRecoilState } from "recoil";
 import { metadataAtom, metaMetadataAtom, userAtom } from "../atoms/atoms";
 import { wsUrl } from "../config/config";
 export const INIT_GAME = "init_game";
@@ -14,8 +14,8 @@ export const GAME_OVER = "game_over";
 
 function Game() {
   const [socket, setSocket] = useState<WebSocket | null>(null);
-    const [metadata, setmetadata] = useRecoilState(metadataAtom)
-    const [metaMetaData, setMetaMetaData] = useRecoilState(metaMetadataAtom)
+    const metadata  = useRecoilValue(metadataAtom)
+    const  setMetaMetaData = useSetRecoilState(metaMetadataAtom)
   
   const [chess, setChess] = useState<Chess>(new Chess());
   const [board, setBoard] = useState<any>(chess.board());
@@ -24,7 +24,7 @@ function Game() {
   const [searching, setSearching] = useState(false);
   const [color, setColor] = useState("");
   const [moves, setMoves] = useState<Move[]>([]);
-    const [user, setUser] = useRecoilState<any>(userAtom);
+    const user = useRecoilValue<any>(userAtom);
   
 
   const [winner, setWinner] = useState(null);

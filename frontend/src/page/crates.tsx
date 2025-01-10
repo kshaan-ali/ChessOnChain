@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import  { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import { signerAtom, userAtom } from "../atoms/atoms";
+import { useRecoilValue } from "recoil";
+import { signerAtom} from "../atoms/atoms";
 import { contractFetcher } from "../blockchain/lib";
 import { Contract, ethers } from "ethers";
 import { openCrate, openCrateBishop, openCrateKing, openCrateKnight, openCratePawn, openCrateQueen, openCrateRook, prices, randomCratePrice } from "../blockchain/function";
@@ -20,15 +20,15 @@ enum typePiece {
 function Crates() {
   const [reciept, setreciept] = useState<any>(false);
   const [crates, setCrates] = useState<any[] | false>(false);
-  const [rookPrice, setRookPrice] = useState<BigInt|number>(0);
-  const [pawnPrice, setpawnPrice] = useState<BigInt|number>(0);
-  const [KingPrice, setKingPrice] = useState<BigInt|number>(0);
-  const [QueenPrice, setQueenPrice] = useState<BigInt|number>(0);
-  const [KnightPrice, setKnightPrice] = useState<BigInt|number>(0);
-  const [BishopPrice, setBishopPrice] = useState<BigInt|number>(0);
-  const [Random, setRandom] = useState<BigInt|number>(0);
+  // const [rookPrice, setRookPrice] = useState<BigInt|number>(0);
+  // const [pawnPrice, setpawnPrice] = useState<BigInt|number>(0);
+  // const [KingPrice, setKingPrice] = useState<BigInt|number>(0);
+  // const [QueenPrice, setQueenPrice] = useState<BigInt|number>(0);
+  // const [KnightPrice, setKnightPrice] = useState<BigInt|number>(0);
+  // const [BishopPrice, setBishopPrice] = useState<BigInt|number>(0);
+  // const [Random, setRandom] = useState<BigInt|number>(0);
   const [contr, setContr] = useState<false | Contract>(false);
-  const [signer, setSigner] = useRecoilState(signerAtom);
+  const signer = useRecoilValue(signerAtom);
 
   const navigate = useNavigate();
   useEffect(() => {
@@ -47,13 +47,13 @@ function Crates() {
         ]);
 
         // Update state with fetched prices
-        setBishopPrice(bishop);
-        setKingPrice(king);
-        setKnightPrice(knight);
-        setQueenPrice(queen);
-        setRookPrice(rook);
-        setpawnPrice(pawn);
-        setRandom(random);
+        // setBishopPrice(bishop);
+        // setKingPrice(king);
+        // setKnightPrice(knight);
+        // setQueenPrice(queen);
+        // setRookPrice(rook);
+        // setpawnPrice(pawn);
+        // setRandom(random);
         console.log(
           bishop,king,queen,knight,rook,pawn
         );
